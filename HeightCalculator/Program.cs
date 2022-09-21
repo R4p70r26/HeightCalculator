@@ -7,12 +7,13 @@ do
 {
     Console.WriteLine();
     Console.WriteLine("Enter");
-    Console.WriteLine("1) for cm/inches");
-    Console.WriteLine("2) for inches/cm");
-    Console.WriteLine("ESC to exit");
+    Console.WriteLine("\t1) for cm/inches");
+    Console.WriteLine("\t2) for inches/cm");
+    Console.WriteLine("\tESC to exit");
     Console.Write("=> ");
 
     ConsoleKeyInfo usrKey = Console.ReadKey();
+    Console.WriteLine();
 
     if (usrKey.Key == ConsoleKey.D1 || usrKey.Key == ConsoleKey.NumPad1)
     {
@@ -25,7 +26,9 @@ do
             int feet = (int)Math.Truncate(feetWhole);
             float inches = (feetWhole - feet) * 12;
 
-            Console.WriteLine($"{feet}\' {inches:N0}\"");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"\n{feet}\' {inches:N0}\"");
+            Console.ResetColor();
         } else
         {
             Console.WriteLine("Enter a valid value");
@@ -46,7 +49,9 @@ do
 
             float calcInches = (feet * 12) + inches;
 
-            Console.WriteLine($"{calcInches * oneInch:N2} cm");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"\n{calcInches * oneInch:N2} cm");
+            Console.ResetColor();
         } else
         {
             Console.WriteLine("Enter a valid value");
